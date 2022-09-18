@@ -1,8 +1,21 @@
 // Assignment code here
-
-
-// Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
+
+// return a random integer ranging from min to max
+function randomInt(min, max) {
+ if (!max) {
+  max = min
+  min = 0
+ }
+ 
+ // interpolate random value
+ var rand = Math.random()
+ return Math.floor(min*(1 - rand) + rand*max)
+}
+
+function getRandomItem(list) {
+  return list[randomInt(list.length)]
+  }
 
 function generatePassword() {
 
@@ -52,7 +65,19 @@ function generatePassword() {
     optionsCart.push(uppercaseList)
   }
 
+  if (optionsCart.length === 0) {
+    optionsCart.push(lowercaseList)
+  }
 
+  var generatedPassword = ""
+
+  for (var i = 0; i < passwordLenght; i++) {
+    var randomList = getRandomItem(optionsCart)
+    var randomChar = getRandomItem(randomList)
+    generatePassword += randomChar
+  }
+
+  return generatedPassword
 }
 
 // Write password to the #password input
