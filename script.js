@@ -19,20 +19,27 @@ function getRandomItem(list) {
 
 function generatePassword() {
 
+  // to run the process for ever //
+while (true) {
+
   var userInput = window.prompt("How long do you want your password to be?")
+
+  //  user exited the prompt //
+  if (userInput === null) {
+    return
+  }
 
   var passwordLenght = parseInt(userInput)
 
-  // use this if statement to show the password lenght is number or not //
   if (isNaN(passwordLenght)) {
     window.alert("That's not a number!")
-    return
+  } else if (passwordLenght < 8 || passwordLenght > 128) {
+    window.alert("Invalid password lenght. Lenght should be between 8 and 128 characters.")
+  } else {
+    break
   }
-
-  if (passwordLenght < 8 || passwordLenght > 128) {
-    window.alert("Password lenght must be between 8 and 128 characters")
-    return
-  }
+}
+  
 // add variable what user wants to show in the window //
   var userWantsNumbers = window.confirm("Would you like to include numbers to your password?")
   var userWantsSymbols = window.confirm("Would you like to include symbols to your password?")
@@ -84,6 +91,7 @@ function generatePassword() {
     generatedPassword += randomChar
   }
 
+  // to show the password on the screen //
   return generatedPassword
 }
 
@@ -92,8 +100,10 @@ function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
+  // for undefined password //
+  if (password) {
   passwordText.value = password;
-
+  }
 }
 
 // Add event listener to generate button
