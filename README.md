@@ -13,8 +13,8 @@ At first when I receieved the starter code I used the git pull command from git 
 
 ## Usage
 
-You can open the website and use it to see how to generate password.
-- 
+This website is to build a password by using the symbols, numbers, and letters. You can open the website and use it to see how to generate password.
+https://imran7rassi.github.io/Imrans-Accessible-Password-Generator/
 
 <img src="./assets/images/Screen-1.jpg/" >
 
